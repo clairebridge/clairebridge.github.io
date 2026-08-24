@@ -1,0 +1,201 @@
+.collage {
+  container-type: inline-size;
+  container-name: collage;
+  position: relative;
+  width: 22rem;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  margin-inline: auto;
+  padding: 0 0.85rem 1.6rem 0;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.collage__pos--window {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.collage__stage {
+  position: relative;
+}
+
+.collage__pin {
+  position: absolute;
+  top: 1.7rem;
+  right: 0.55rem;
+  z-index: 4;
+}
+
+.collage__window {
+  background: var(--paper);
+  border: 1px solid var(--steel);
+  box-shadow: var(--metal-emboss), var(--shadow-hard);
+  overflow: hidden;
+}
+
+.collage__titlebar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.5rem;
+  border-bottom: 1px solid var(--steel);
+  background: var(--metal-gradient);
+  box-shadow: inset 0 -1px 0 rgb(24 25 29 / 0.06);
+}
+
+.collage__dots {
+  display: flex;
+  gap: 0.28rem;
+}
+
+.collage__dots span {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+
+.collage__dots span:nth-child(1) {
+  background: var(--blush);
+}
+
+.collage__dots span:nth-child(2) {
+  background: var(--sticky);
+}
+
+.collage__dots span:nth-child(3) {
+  background: var(--sky);
+  animation: live-dot 2.8s ease-in-out infinite;
+}
+
+.collage__filename {
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 3cqw, 0.72rem);
+  color: var(--ink);
+}
+
+.collage__frame {
+  overflow: hidden;
+}
+
+.collage__portrait {
+  width: 100%;
+  aspect-ratio: 8 / 9;
+  object-fit: cover;
+  object-position: 50% 48%;
+  transform: scale(1.18);
+  transform-origin: 50% 44%;
+}
+
+.collage__pos--bow {
+  position: absolute;
+  right: -1.95rem;
+  bottom: -0.4rem;
+  z-index: 3;
+  width: min(62%, 13.5rem);
+}
+
+.float-pin {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0;
+}
+
+.float-pin__star {
+  display: grid;
+  place-items: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--lilac-mist);
+  box-shadow: var(--shadow-hard);
+  z-index: 1;
+}
+
+.float-pin__star svg {
+  display: block;
+  width: 0.62rem;
+  height: 0.62rem;
+}
+
+.float-pin__card {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0.28rem 0;
+  background: var(--paper);
+  border: 1px solid var(--steel);
+  border-right: 0;
+  box-shadow: var(--shadow-hard);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transform: translateX(4px);
+  transition:
+    max-width 220ms ease,
+    opacity 180ms ease,
+    padding 220ms ease,
+    transform 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .float-pin:hover .float-pin__card,
+  .float-pin:focus-within .float-pin__card {
+    max-width: 9.5rem;
+    opacity: 1;
+    padding: 0.28rem 0.4rem 0.28rem 0.55rem;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collage__dots span:nth-child(3) {
+    animation: none;
+  }
+}
+
+@keyframes live-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+
+@media (min-width: 1200px) {
+  .collage {
+    width: 24.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .collage {
+    width: 27rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .collage {
+    width: min(22rem, 100%);
+    padding-right: 0.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .collage {
+    width: min(19.5rem, 100%);
+  }
+}

@@ -1,0 +1,509 @@
+.float-field {
+  --gutter: max(0px, calc((100% - var(--page-max)) / 2));
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.float-field--behind {
+  z-index: 1;
+}
+
+.float-field__deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.float-pos {
+  position: absolute;
+  pointer-events: none;
+}
+
+.float-ornament {
+  display: inline-block;
+  pointer-events: auto;
+  transform-origin: center;
+}
+
+.float-ornament--idle {
+  pointer-events: none;
+}
+
+.float-field__constellation {
+  position: absolute;
+  inset: 8% 6%;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  opacity: 0.28;
+}
+
+.float-field__constellation path {
+  fill: none;
+  stroke: var(--lilac-dusk);
+  stroke-width: 0.18;
+  stroke-dasharray: 1.4 1.1;
+  stroke-linecap: round;
+  animation: constellation-drift 36s linear infinite;
+}
+
+.float-crop {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--ink);
+  opacity: 0.55;
+}
+
+.float-crop.is-tl {
+  top: 1.1rem;
+  left: max(0.85rem, env(safe-area-inset-left));
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.float-crop.is-tr {
+  top: 1.1rem;
+  right: max(0.85rem, env(safe-area-inset-right));
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.float-crop.is-bl {
+  bottom: 1.1rem;
+  left: max(0.85rem, env(safe-area-inset-left));
+  border-right: 0;
+  border-top: 0;
+}
+
+.float-crop.is-br {
+  bottom: 1.1rem;
+  right: max(0.85rem, env(safe-area-inset-right));
+  border-left: 0;
+  border-top: 0;
+}
+
+.float-star {
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  filter: drop-shadow(1px 1px 0 var(--paper));
+}
+
+.float-star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.float-star.is-sm {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.float-star.is-md {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.float-star.is-lg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.float-star.is-lilac {
+  color: var(--lilac-deep);
+}
+
+.float-pos--star-a {
+  top: 14%;
+  right: calc(var(--gutter) + var(--page-pad) + 16rem);
+  left: auto;
+}
+
+.float-pos--star-b {
+  top: 5%;
+  right: calc(var(--gutter) + var(--page-pad) - 0.35rem);
+  left: auto;
+}
+
+.float-pos--star-c {
+  bottom: 18%;
+  left: max(1.15rem, calc(var(--gutter) * 0.38));
+}
+
+.float-pos--star-d {
+  top: 36%;
+  right: max(1.1rem, calc(var(--gutter) * 0.28));
+}
+
+.float-pos--star-e {
+  bottom: 18%;
+  right: calc(var(--gutter) + var(--page-pad) + 14rem);
+  left: auto;
+}
+
+.float-pos--select {
+  top: 5%;
+  right: calc(var(--gutter) + var(--page-pad) + 10rem);
+  left: auto;
+}
+
+.float-pos--folder {
+  top: 36%;
+  right: calc(var(--gutter) + var(--page-pad) + 22.5rem);
+  left: auto;
+}
+
+.float-pos--swirls-card {
+  top: 0;
+  right: calc(var(--gutter) + var(--page-pad) - 5.5rem);
+  width: min(44rem, 70vw);
+  pointer-events: none;
+}
+
+.float-pos--swirls-edge {
+  top: 36%;
+  right: max(-1.5rem, calc(var(--gutter) * 0.08 - 2rem));
+  width: min(26rem, 44vw);
+  pointer-events: none;
+}
+
+.float-swirls {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.float-swirls path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.float-swirls__ribbon {
+  stroke: var(--lilac);
+  stroke-width: 12;
+  opacity: 0.38;
+}
+
+.float-swirls__ribbon.is-thin {
+  stroke-width: 8;
+  opacity: 0.3;
+}
+
+.float-swirls__ink {
+  stroke: color-mix(in srgb, var(--lilac-dusk) 62%, #3d2a36 38%);
+  stroke-width: 1.7;
+  stroke-dasharray: 14 10;
+  opacity: 0.38;
+  animation: swirl-draw 93.6s linear infinite;
+}
+
+.float-swirls__ink.is-fine {
+  stroke-width: 1.2;
+  stroke-dasharray: 9 9;
+  opacity: 0.28;
+  animation-duration: 124.8s;
+}
+
+.float-swirls__lilac {
+  stroke: var(--lilac-deep);
+  stroke-width: 1.55;
+  stroke-dasharray: 12 12;
+  opacity: 0.7;
+  animation: swirl-draw 156s linear infinite;
+}
+
+.float-pos--swirls-card .float-ornament,
+.float-pos--swirls-edge .float-ornament {
+  display: block;
+  width: 100%;
+  pointer-events: none;
+}
+
+.float-pos--folder,
+.float-pos--star-a,
+.float-pos--star-b,
+.float-pos--star-e,
+.float-pos--select {
+  z-index: 2;
+}
+
+.float-select {
+  position: relative;
+  width: min(16vw, 13.5rem);
+  height: min(18vh, 9.5rem);
+  border: 1px dashed var(--ink);
+  background: rgb(255 252 253 / 0.08);
+}
+
+.float-select__handle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 1px 1px 0 var(--slate);
+}
+
+.float-select__handle.is-tl { top: -4px; left: -4px; }
+.float-select__handle.is-tr { top: -4px; right: -4px; }
+.float-select__handle.is-bl { bottom: -4px; left: -4px; }
+.float-select__handle.is-br { bottom: -4px; right: -4px; }
+.float-select__handle.is-t { top: -4px; left: 50%; transform: translateX(-50%); }
+.float-select__handle.is-b { bottom: -4px; left: 50%; transform: translateX(-50%); }
+.float-select__handle.is-l { top: 50%; left: -4px; transform: translateY(-50%); }
+.float-select__handle.is-r { top: 50%; right: -4px; transform: translateY(-50%); }
+
+.float-select__label {
+  position: absolute;
+  left: -1px;
+  top: calc(100% + 6px);
+  padding: 0.12rem 0.35rem;
+  background: var(--ink);
+  color: var(--lilac-mist);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.float-folder {
+  display: block;
+  width: 5.6rem;
+  color: inherit;
+  transform: rotate(7deg);
+  transition: transform 180ms ease;
+}
+
+.float-folder__tab {
+  display: block;
+  width: 42%;
+  height: 11px;
+  margin-left: 7px;
+  background: var(--metal-gradient);
+  border: 1px solid var(--steel);
+  border-bottom: 0;
+  border-radius: 3px 7px 0 0;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.8);
+}
+
+.float-folder__body {
+  display: flex;
+  align-items: flex-end;
+  min-height: 3.15rem;
+  padding: 0.35rem 0.45rem;
+  background: var(--metal-gradient);
+  border: 1px solid var(--steel);
+  box-shadow: var(--metal-emboss), var(--shadow-hard);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.float-pos--token {
+  top: 22%;
+  left: max(1.15rem, calc(var(--gutter) * 0.22));
+}
+
+.float-token {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.5rem;
+  background: var(--metal-gradient);
+  border: 1px solid var(--steel);
+  box-shadow: var(--metal-emboss), var(--shadow-hard);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  transform: rotate(-6deg);
+}
+
+.float-token__swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--lilac);
+  border: 1px solid var(--ink);
+}
+
+.float-pos--swatches {
+  top: 38%;
+  left: max(1.15rem, calc(var(--gutter) * 0.18));
+}
+
+.float-swatches {
+  display: flex;
+  padding: 0.28rem;
+  background: var(--paper);
+  border: 1px solid var(--steel);
+  box-shadow: var(--shadow-hard);
+  transform: rotate(-3deg);
+}
+
+.float-swatches i {
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1px solid var(--ink);
+  margin-left: -6px;
+  transition: transform 180ms ease, margin 180ms ease;
+}
+
+.float-swatches i:first-child {
+  margin-left: 0;
+}
+
+.float-swatches i.is-ink { background: var(--ink); }
+.float-swatches i.is-lilac { background: var(--lilac); }
+.float-swatches i.is-deep { background: var(--lilac-deep); }
+.float-swatches i.is-paper { background: var(--paper); }
+
+.float-pos--spec {
+  top: 4.5%;
+  right: max(1.15rem, calc(var(--gutter) * 0.42));
+}
+
+.float-spec {
+  display: inline-block;
+  padding: 0.18rem 0.45rem;
+  border: 1px dashed var(--steel);
+  background: rgb(255 252 253 / 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--muted);
+}
+
+.float-pos--hud {
+  bottom: 1.35rem;
+  left: max(1.1rem, env(safe-area-inset-left));
+}
+
+.float-hud {
+  display: block;
+  pointer-events: none;
+  color: var(--lilac-dusk);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+}
+
+.float-pos--star-d,
+.float-pos--star-e,
+.float-pos--star-c,
+.float-pos--select,
+.float-pos--token,
+.float-pos--swatches,
+.float-pos--spec,
+.float-pos--hud,
+.float-field__constellation,
+.float-crop {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .float-folder:hover {
+    transform: rotate(3deg) translateY(-4px);
+  }
+
+  .float-swatches:hover i {
+    margin-left: 3px;
+    transform: rotate(-8deg) translateY(-2px);
+  }
+
+  .float-swatches:hover i:nth-child(2) { transform: rotate(6deg) translateY(-5px); }
+  .float-swatches:hover i:nth-child(3) { transform: rotate(-4deg) translateY(-3px); }
+  .float-swatches:hover i:nth-child(4) { transform: rotate(8deg) translateY(-6px); }
+
+  .float-select:hover .float-select__handle {
+    transform: scale(1.25);
+  }
+
+  .float-select:hover .float-select__handle.is-t,
+  .float-select:hover .float-select__handle.is-b {
+    transform: translateX(-50%) scale(1.25);
+  }
+
+  .float-select:hover .float-select__handle.is-l,
+  .float-select:hover .float-select__handle.is-r {
+    transform: translateY(-50%) scale(1.25);
+  }
+}
+
+@media (min-width: 1100px) {
+  .float-pos--star-e,
+  .float-pos--star-d,
+  .float-pos--spec,
+  .float-pos--hud,
+  .float-crop {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .float-pos--select {
+    display: block;
+  }
+}
+
+@media (min-width: 1400px) {
+  .float-pos--swatches,
+  .float-pos--star-c,
+  .float-pos--token,
+  .float-field__constellation {
+    display: block;
+  }
+
+  .float-select {
+    width: min(18vw, 16rem);
+    height: 10.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .float-select {
+    width: 17rem;
+    height: 11.5rem;
+  }
+}
+
+@media (max-width: 859px) {
+  .float-field {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-field__constellation path,
+  .float-swirls__ink,
+  .float-swirls__lilac {
+    animation: none;
+  }
+}
+
+@keyframes constellation-drift {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -25;
+  }
+}
+
+@keyframes swirl-draw {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -360;
+  }
+}

@@ -1,0 +1,84 @@
+:root {
+  /* Core palette */
+  --slate: #18191d;
+  --slate-soft: #24262b;
+  --slate-muted: #3a3c42;
+
+  --lilac: #d4bcc9;
+  --lilac-soft: #e8dae3;
+  --lilac-mist: #f3ecf1;
+  --lilac-deep: #b8a0ae;
+  --lilac-dusk: #9a8494;
+
+  /* Neutrals */
+  --frost: #f5f0f3;
+  --silver: #ddd4da;
+  --steel: #b5a8b2;
+  --pewter: #7a7178;
+  --graphite: #2e3035;
+  --ink: var(--slate);
+
+  /* Accent family — lilac derivatives */
+  --cotton-candy: #edd9e4;
+  --aqua-mist: #ebe1e8;
+  --magenta: #c4a8b8;
+  --violet: #d4bcc9;
+  --tangerine: #c9a8b5;
+  --zesty-lime: #b5a0ad;
+  --ocean: #d4bcc9;
+
+  /* Surface tints */
+  --metal-hi: #fdfafb;
+  --metal-mid: #ede4ea;
+  --metal-lo: #d4bcc9;
+  --metal-deep: #a894a0;
+
+  /* Semantic */
+  --ground: var(--lilac-mist);
+  --ink-soft: #18191db3;
+  --muted: var(--pewter);
+  --paper: #fffcfd;
+  --line: var(--graphite);
+  --chrome: var(--silver);
+  --hot: var(--magenta);
+  --cyan: var(--lilac);
+  --lime: var(--lilac-dusk);
+  --gold: var(--tangerine);
+  --lavender: var(--lilac);
+  --sky: var(--lilac-soft);
+  --blush: var(--cotton-candy);
+  --sticky: var(--lilac-soft);
+  --folder-tab: var(--lilac-deep);
+  --folder-body: var(--lilac-mist);
+  --binary: var(--lilac-dusk);
+
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-serif: 'Bodoni Moda', 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', 'Lucida Console', ui-monospace, monospace;
+
+  --nav-h: 5.25rem;
+  --page-max: 74rem;
+  --page-pad: clamp(1.15rem, 3.4vw, 2.5rem);
+  --touch: 2.75rem;
+  --footer-h: 2.75rem;
+  --radius-pill: 999px;
+  --shadow-hard: 3px 3px 0 var(--slate);
+  --shadow-soft: 0 10px 24px rgb(24 25 29 / 0.08);
+  --focus-ring: 2px solid var(--lilac-deep);
+  --metal-gradient: linear-gradient(
+    165deg,
+    var(--metal-hi) 0%,
+    var(--metal-mid) 42%,
+    var(--metal-lo) 100%
+  );
+  --metal-emboss:
+    inset 0 1px 0 rgb(255 255 255 / 0.92),
+    inset 0 -2px 5px rgb(24 25 29 / 0.1),
+    0 1px 0 rgb(255 255 255 / 0.55);
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --page-max: 84rem;
+  }
+}

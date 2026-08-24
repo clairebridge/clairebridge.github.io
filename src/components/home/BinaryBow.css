@@ -1,0 +1,31 @@
+.binary-bow {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.5rem 0.55rem 0.4rem;
+  background: var(--metal-gradient);
+  border: 1px solid var(--steel);
+  box-shadow: var(--metal-emboss), var(--shadow-hard);
+  transform: rotate(-4deg);
+  user-select: none;
+}
+
+.binary-bow__art {
+  margin: 0;
+  background: linear-gradient(180deg, var(--slate) 0%, var(--slate-muted) 45%, var(--slate) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: var(--font-mono);
+  font-size: clamp(5px, 1.7cqw, 8px);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  white-space: pre;
+  overflow: hidden;
+  filter: drop-shadow(0 0 0.35px rgb(24 25 29 / 0.35));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .binary-bow:hover {
+    transform: rotate(-2deg) translateY(-3px);
+  }
+}

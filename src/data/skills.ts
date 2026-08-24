@@ -1,0 +1,26 @@
+export const SKILLS = [
+  'User-Centered Design',
+  'UX Research',
+  'User Interviews',
+  'Usability Testing',
+  'Requirements Gathering',
+  'User Interface Design',
+  'Interaction Design',
+  'Accessibility',
+  'Wireframing',
+  'Prototyping',
+  'Figma',
+  'Design Systems',
+  'Design Thinking',
+  'Mentoring',
+  'Cross-functional Collaboration',
+  'Stakeholder Management',
+  'Git',
+  'Front-End Development',
+  'Quality Assurance',
+  'Azure DevOps',
+  'User Stories',
+  'Agile Methodologies',
+] as const
+
+export type Skill = (typeof SKILLS)[number]

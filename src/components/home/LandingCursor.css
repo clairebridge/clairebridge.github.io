@@ -1,0 +1,139 @@
+.landing-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.landing-cursor__lead,
+.landing-cursor__trail,
+.landing-cursor__spark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  will-change: transform, opacity;
+}
+
+.landing-cursor__lead {
+  width: 28px;
+  height: 36px;
+  color: #fff;
+  z-index: 3;
+  place-items: start;
+  filter:
+    drop-shadow(0.5px 1px 0 var(--ink))
+    drop-shadow(0 0 5px rgb(196 168 184 / 0.4));
+}
+
+.landing-cursor__lead svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.landing-cursor__body {
+  fill: currentColor;
+  stroke: var(--ink);
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.landing-cursor__lead .landing-cursor__shine {
+  display: none;
+}
+
+.landing-cursor__shine {
+  fill: var(--lilac-mist);
+  opacity: 0.58;
+}
+
+.landing-cursor__trail {
+  width: 12px;
+  height: 12px;
+  z-index: 1;
+  opacity: 0;
+}
+
+.landing-cursor__trail svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-cursor__trail.is-ink {
+  color: var(--ink);
+}
+
+.landing-cursor__trail.is-lavender {
+  color: var(--lavender);
+}
+
+.landing-cursor__trail.is-sticky {
+  color: var(--gold);
+}
+
+.landing-cursor__trail.is-blush {
+  color: var(--hot);
+}
+
+.landing-cursor__trail.is-sky {
+  color: var(--cyan);
+}
+
+.landing-cursor__spark {
+  width: 12px;
+  height: 12px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.landing-cursor__spark svg,
+.landing-cursor__spark i {
+  grid-area: 1 / 1;
+  display: none;
+}
+
+.landing-cursor__spark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-cursor__spark i {
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  border-radius: 50%;
+  background: currentColor;
+  font-style: normal;
+}
+
+.landing-cursor__spark[data-kind='star'] svg:first-of-type,
+.landing-cursor__spark[data-kind='spark'] svg:nth-of-type(2),
+.landing-cursor__spark[data-kind='dust'] i {
+  display: block;
+}
+
+.landing-cursor__spark[data-tone='lavender'] {
+  color: var(--lavender);
+}
+
+.landing-cursor__spark[data-tone='sticky'] {
+  color: var(--gold);
+}
+
+.landing-cursor__spark[data-tone='blush'] {
+  color: var(--hot);
+}
+
+.landing-cursor__spark[data-tone='sky'] {
+  color: var(--cyan);
+}
+
+.landing-cursor__spark[data-tone='ink'] {
+  color: var(--ink);
+}

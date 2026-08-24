@@ -1,0 +1,123 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
+  min-height: var(--nav-h);
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
+  padding:
+    max(0.85rem, env(safe-area-inset-top))
+    max(var(--page-pad), env(safe-area-inset-right))
+    0.85rem
+    max(var(--page-pad), env(safe-area-inset-left));
+  position: relative;
+  z-index: 20;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.15rem 0.2rem 0.15rem 0;
+  flex-shrink: 0;
+  color: inherit;
+  transition: transform 160ms ease;
+}
+
+.nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: var(--touch);
+  padding: 0.35rem 0.95rem;
+  border: 1px solid var(--steel);
+  border-radius: var(--radius-pill);
+  background: var(--metal-gradient);
+  box-shadow: var(--metal-emboss);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.nav__star {
+  display: grid;
+  place-items: center;
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+}
+
+.nav__star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.nav__link.is-active {
+  background: var(--ink);
+  color: var(--lilac-mist);
+  border-color: var(--ink);
+  box-shadow: var(--shadow-hard);
+}
+
+.nav__link.is-active:focus-visible {
+  outline-color: var(--ink);
+  box-shadow: 0 0 0 2px var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__logo:hover {
+    transform: translateY(-1px);
+  }
+
+  .nav__link:hover {
+    transform: translateY(-2px) rotate(-1.5deg);
+    box-shadow: var(--metal-emboss), var(--shadow-hard);
+    background: var(--lilac);
+    color: var(--ink);
+    border-color: var(--graphite);
+  }
+
+  .nav__link.is-active:hover {
+    background: var(--ink);
+    color: var(--lilac-mist);
+    transform: translateY(-1px) rotate(0deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+    min-height: 0;
+    padding-bottom: 0.35rem;
+  }
+
+  .nav__links {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav__link {
+    width: 100%;
+    padding-inline: 0.55rem;
+  }
+}

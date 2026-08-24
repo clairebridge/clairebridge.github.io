@@ -1,0 +1,55 @@
+.site-footer {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-height: var(--footer-h);
+  margin-top: auto;
+  padding:
+    0.35rem
+    max(var(--page-pad), env(safe-area-inset-right))
+    max(0.35rem, env(safe-area-inset-bottom))
+    max(var(--page-pad), env(safe-area-inset-left));
+  background: var(--ground);
+  border-top: 1px solid var(--steel);
+}
+
+.site-footer__mail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: 100%;
+  min-height: 1.85rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__star {
+  display: grid;
+  place-items: center;
+  width: 0.65rem;
+  height: 0.65rem;
+  flex-shrink: 0;
+}
+
+.site-footer__star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__mail:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+.site-footer__mail:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}

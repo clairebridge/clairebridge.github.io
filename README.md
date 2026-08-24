@@ -20,11 +20,9 @@ The production build writes `dist/`, plus `dist/404.html` (SPA fallback) and `di
 
 ## GitHub Pages
 
-This repo is set up for static hosting.
+GitHub Pages can only serve static files. It cannot run TypeScript, so each build compiles the app to JavaScript and writes that compiled site to the repo root (`index.html`, `assets/`, `404.html`).
 
-1. In the GitHub repo, open **Settings → Pages**.
-2. Set source to **GitHub Actions**.
-3. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds and deploys `dist/`.
+Push to `main` to rebuild. The workflow in `.github/workflows/deploy.yml` compiles the site and publishes it.
 
 `vite.config.ts` sets the asset base from the repo name when `GITHUB_PAGES=true`:
 

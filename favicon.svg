@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Claire Does Design">
+  <rect width="32" height="32" rx="7" fill="#f3ecf1"/>
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="6.25" fill="none" stroke="#18191d" stroke-width="1.5"/>
+  <path
+    d="M12 2.4l2.62 7.92h8.46l-6.85 5.14 2.62 7.92L12 18.1l-6.79 5.28 2.62-7.92-6.85-5.14h8.46L12 2.4z"
+    transform="translate(4 4)"
+    fill="#18191d"
+    stroke="#18191d"
+    stroke-width="0.6"
+    stroke-linejoin="round"
+  />
+</svg>
